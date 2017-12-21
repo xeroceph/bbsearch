@@ -9,7 +9,10 @@ import sys
 import progressbar
 import requests
 
-domains = ['google.com', 'facebook.com', 'youtube.com', 'twitter.com', 'microsoft.com', 'linkedin.com', 'wikipedia.org', 'apple.com', 'instagram.com', 'adobe.com', 'wordpress.org', 'en.wikipedia.org', 'itunes.apple.com', 'wordpress.com', 'vimeo.com', 'blogspot.com', 'pinterest.com', 'yahoo.com', 'amazon.com', 'player.vimeo.com', 'bit.ly', 'googletagmanager.com', 'tumblr.com', 'flickr.com', 'get.adobe.com', 'w3.org', 'github.com', 'mozilla.org', 'godaddy.com', 'sourceforge.net', 'apache.org', 'nytimes.com', 'gravatar.com', 'soundcloud.com', 'bbc.co.uk', 'reddit.com', 'europa.eu', 't.co', 'cnn.com', 'weebly.com', 'php.net', 'nih.gov']
+# open a list from 'domains.txt' locally
+file = open('domains.txt', 'r')
+items = file.readlines()
+domains = [x[:-1] for x in items] # strip newline chars from list
 
 item  = 0
 hit = 0
