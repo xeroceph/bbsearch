@@ -41,7 +41,8 @@ for i in domains :
     except:
         failed.append(i)
 
-percentage = (float(hit) / float(total)) * 100
-print '  ', hit, '/', total, ' --- ', format(round(percentage,2)),'%'
+failCount = len(failed)
+percentage = (float(hit) / float(total-failCount)) * 100
+print '  ', hit, '/', (total-failCount), ' --- ', format(round(percentage,2)),'%'
 print "Domains:", success
 print "Request failures:", failed
