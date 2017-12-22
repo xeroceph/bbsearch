@@ -34,7 +34,7 @@ for i in domains :
     progressBar(item, total)
     url = 'https://' + i + '/security.txt'
     try:
-        r = requests.get(url)
+        r = requests.get(url, timeout=10)
         if r.status_code == 200:
             hit += 1
             success.append(i)
