@@ -50,7 +50,16 @@ class bbsearch():
         failCount = len(self.failed)
         percentage = (float(self.hit) / float(self.total - failCount)) * 100
         print '  ', self.hit, '/', (self.total - failCount), ' --- ', format(round(percentage,2)),'%'
-        print "Domains:", self.success
-        print "Request failures:", self.failed
+        try:
+            f = open('results.txt', 'w')
+            f.writelines('Domains:')
+            f.writelines(str(self.success))
+            f.writelines('\n')
+            f.writelines('Request failures:')
+            f.writelines(str(self.failed))
+            f.close()
+            print 'Final summary saved to results.txt'
+        except:
+            print 'Error: failed to write results file.'
 
 bbsearch()
